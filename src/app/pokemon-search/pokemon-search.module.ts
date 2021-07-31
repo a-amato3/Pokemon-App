@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { PokemonResultMoudule } from './pokemon-result/pokemon-result.module';
 
@@ -10,6 +10,7 @@ import { PokemonResultMoudule } from './pokemon-result/pokemon-result.module';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
     FormsModule,

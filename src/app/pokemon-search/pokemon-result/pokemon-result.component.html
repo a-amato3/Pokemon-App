@@ -8,8 +8,8 @@
     <div *ngFor="let pokemon of pokemons?.results | search: query">
       <div *ngIf="query">
         <mat-card class="pokemon-card" *ngIf="pokemon.details">
-          <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
-          <div class="id">{{ pokemon.id }}</div>
+          <mat-card-title>{{ pokemon.name | name }}</mat-card-title>
+          <!-- <div class="id">{{ pokemon.id }}</div> -->
           <div class="background-image">
             <img
               mat-card-image

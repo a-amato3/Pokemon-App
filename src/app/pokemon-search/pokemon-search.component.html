@@ -1,3 +1,4 @@
+<!-- <form> -->
 <div style="text-align: center" class="content-area">
   <img
     class="pokemon-logo"
@@ -9,40 +10,48 @@
   </div>
 
   <div style="text-align: center" class="search-box">
-    <div>
-      <input
-        matInput
-        class="search-input"
-        type="text"
-        ngDefaultControl
-        [(ngModel)]="search"
-        (ngModelChange)="searchEvent($event)"
-        placeholder="Choose your letter..."
-      />
+    <div class="center">
+      <div>
+        <input
+          matInput
+          class="search-input"
+          type="text"
+          ngDefaultControl
+          [(ngModel)]="search"
+          (ngModelChange)="searchEvent($event)"
+          placeholder="Choose your letter..."
+        />
+
+        <button class="close-button" mat-icon-button (click)="clearSearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
 
       <button
+        *ngIf="searchResult"
         mat-button
-        class="close-button"
-        mat-icon-button
-        aria-label="Clear"
-        (click)="searchEvent('')"
+        class="generator"
+        type="button"
+        [(ngModel)]="search"
+        (ngModelChange)="searchEvent($event)"
       >
-        <mat-icon>close</mat-icon>
+        Generate Pokemon
       </button>
     </div>
   </div>
 
+  <div>
+    <app-pokemon-result [search]="search"></app-pokemon-result>
+  </div>
+
   <button
+    *ngIf="!searchResult"
     mat-button
     class="generator"
     type="button"
-    name="search"
     [(ngModel)]="search"
-    (click)="searchEvent($event)"
+    (click)="clearSearch()"
   >
-    Generate Pokemon
+    Generate Another
   </button>
-</div>
-<div>
-  <app-pokemon-result [search]="search"></app-pokemon-result>
 </div>
