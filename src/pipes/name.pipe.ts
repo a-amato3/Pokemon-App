@@ -4,12 +4,16 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'name',
 })
 export class Name implements PipeTransform {
-  transform(value: any): any {
-    if (value === 'bulbasaur') {
-      return value + ' bb';
-    }
-    if (value === 'charizard') {
-      return value + ' bb';
+  transform(value: string): string {
+    switch (value) {
+      case 'bulbasaur':
+        return value + ' bb';
+
+      case 'charizard':
+        return value + ' cc';
+
+      default:
+        break;
     }
 
     return value;

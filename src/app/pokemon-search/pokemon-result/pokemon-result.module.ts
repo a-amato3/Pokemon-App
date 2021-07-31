@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CustomPipeModule } from 'src/pipes/custom-pipes.module';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,8 @@ import { CustomPipeModule } from 'src/pipes/custom-pipes.module';
     FormsModule,
     BrowserAnimationsModule,
     CustomPipeModule,
+
+    MatCardModule,
   ],
   schemas: [],
 })
