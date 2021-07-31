@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
+import { Results } from './../interfaces';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Pokemon-App';
+  public search: string;
+  public pokemons: Array<Results>;
+
+  // Called when search input changes
+  public newPokemonSearch(search: string): void {
+    if (this.search !== search) {
+      this.search = search;
+    }
+  }
 }

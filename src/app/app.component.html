@@ -1,1 +1,7 @@
-<h3>Pokemon App</h3>
+<div class="center">
+  <app-pokemon-search
+    [pokemons]="pokemons"
+    (searchChange)="newPokemonSearch($event)"
+  >
+  </app-pokemon-search>
+</div>

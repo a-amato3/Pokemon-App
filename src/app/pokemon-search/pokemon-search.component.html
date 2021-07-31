@@ -1,0 +1,48 @@
+<div style="text-align: center" class="content-area">
+  <img
+    class="pokemon-logo"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
+  />
+
+  <div style="text-align: center">
+    <h4>CODE NAME GENERATOR</h4>
+  </div>
+
+  <div style="text-align: center" class="search-box">
+    <div>
+      <input
+        matInput
+        class="search-input"
+        type="text"
+        ngDefaultControl
+        [(ngModel)]="search"
+        (ngModelChange)="searchEvent($event)"
+        placeholder="Choose your letter..."
+      />
+
+      <button
+        mat-button
+        class="close-button"
+        mat-icon-button
+        aria-label="Clear"
+        (click)="searchEvent('')"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <button
+    mat-button
+    class="generator"
+    type="button"
+    name="search"
+    [(ngModel)]="search"
+    (click)="searchEvent($event)"
+  >
+    Generate Pokemon
+  </button>
+</div>
+<div>
+  <app-pokemon-result [search]="search"></app-pokemon-result>
+</div>
