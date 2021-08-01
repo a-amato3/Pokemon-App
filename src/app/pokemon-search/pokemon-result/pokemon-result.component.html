@@ -6,29 +6,51 @@
 <div style="text-align: center">
   <div class="grid-layout">
     <div *ngFor="let pokemon of pokemons?.results | search: query">
-      <div *ngIf="query">
-        <!-- <div> -->
-        <mat-card class="pokemon-card" *ngIf="pokemon.details">
-          <mat-card-title>
-            <h1>
-              {{ pokemon.name | name | titlecase }}
+      <div *ngIf="query && pokemon.details">
+        <div class="grid-container">
+          <div class="item1">
+            <h1 class="title">
+              <strong>
+                {{ pokemon.name | name | uppercase }}
+              </strong>
             </h1>
-          </mat-card-title>
-          <div class="background-image">
+          </div>
+
+          <div class="item2">
             <img
               mat-card-image
               src="{{ pokemon.details.sprites.front_default }}"
               alt="photo of {{ pokemon.name }}"
             />
           </div>
-          <mat-card-content>
-            <div style="display: block">
-              <div *ngFor="let type of pokemon.details.types" class="types">
-                {{ type.type.name | titlecase }}
-              </div>
+
+          <div class="item3">
+            HEIGHT
+            <div style="margin-top: 2rem">{{ pokemon.details.weight }}cm</div>
+          </div>
+
+          <div class="item4">
+            WEIGHT
+            <div style="margin-top: 2rem">{{ pokemon.details.height }}kg</div>
+          </div>
+
+          <div class="item5">
+            TYPE
+            <div
+              style="margin-top: 2rem"
+              *ngFor="let type of pokemon.details.types"
+            >
+              {{ type.type.name | titlecase }}
             </div>
-          </mat-card-content>
-        </mat-card>
+          </div>
+
+          <div style="margin-top: 2rem" class="item6">
+            WEAKNESSES
+            <div *ngFor="let type of pokemon.details.weaknesses">
+              {{ type.type.name | titlecase }}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

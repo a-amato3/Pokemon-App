@@ -44,26 +44,27 @@ export class PokemonSearchComponent {
 
   public searchEvent(search: string): void {
     // check for cleared search
-    // if (search === '') {
-    // this.search = search;
+    if (search !== null) {
+      // this.search = search;
 
-    switch (search) {
-      case 'b':
-        this.search = 'bulbasaur';
-        this.searchResult = false;
-        break;
+      switch (search) {
+        case 'b':
+          this.search = 'bulbasaur';
+          this.searchResult = false;
+          break;
 
-      case 'c':
-        this.search = 'charizard';
-        this.searchResult = false;
+        case 'c':
+          this.search = 'charizard';
+          this.searchResult = false;
 
-        break;
-      default:
-        this.searchResult = false;
-        break;
+          break;
+        default:
+          this.searchResult = false;
+          break;
+      }
+      this.searchChange.emit(this.search);
     }
-    // }
-    this.searchChange.emit(this.search);
+    // this.searchChange.emit(this.search);
   }
 
   public clearSearch(): void {

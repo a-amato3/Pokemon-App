@@ -5,24 +5,29 @@
     src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
   />
 
-  <div class="subtitle">
-    <h1>CODE NAME GENERATOR</h1>
+  <div *ngIf="searchResult" class="subtitle">
+    <h1><strong>CODE NAME GENERATOR</strong></h1>
   </div>
 
   <div style="text-align: center" class="search-box">
     <div class="center">
       <div>
         <input
+          *ngIf="searchResult"
           matInput
           class="search-input"
           type="text"
-          ngDefaultControl
           [(ngModel)]="search"
           (ngModelChange)="searchEvent($event)"
           placeholder="Choose your letter..."
         />
 
-        <button class="close-button" mat-icon-button (click)="clearSearch()">
+        <button
+          *ngIf="searchResult"
+          class="close-button"
+          mat-icon-button
+          (click)="clearSearch()"
+        >
           <mat-icon>close</mat-icon>
         </button>
       </div>
@@ -32,6 +37,7 @@
         mat-button
         class="generator"
         type="button"
+        ngDefaultControl
         [(ngModel)]="search"
         (ngModelChange)="searchEvent($event)"
       >
@@ -49,9 +55,9 @@
     mat-button
     class="generator"
     type="button"
-    [(ngModel)]="search"
     (click)="clearSearch()"
   >
+    <!--  [(ngModel)]="search" -->
     Generate Another
   </button>
 </div>

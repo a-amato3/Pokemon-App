@@ -6,14 +6,14 @@ export interface Results {
 }
 
 export interface PokeAPI {
-  count: number;
-  next: string;
+  // count: number;
+  // next: string;
   results: Results[];
 }
 
 export interface PokemonDetails {
   name: string;
   id: number;
-  abilities?: Array<any>;
-  types?: Array<any>;
+  weight: string;
+  // types?: Array<any>;
 }
