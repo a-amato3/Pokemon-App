@@ -25,17 +25,17 @@
           </div>
 
           <div class="item3">
-            HEIGHT
+            <strong>HEIGHT</strong>
             <div style="margin-top: 2rem">{{ pokemon.details.weight }}cm</div>
           </div>
 
           <div class="item4">
-            WEIGHT
+            <strong>WEIGHT</strong>
             <div style="margin-top: 2rem">{{ pokemon.details.height }}kg</div>
           </div>
 
           <div class="item5">
-            TYPE
+            <strong>TYPE</strong>
             <div
               style="margin-top: 2rem"
               *ngFor="let type of pokemon.details.types"
@@ -45,7 +45,7 @@
           </div>
 
           <div style="margin-top: 2rem" class="item6">
-            WEAKNESSES
+            <strong>WEAKNESSES</strong>
             <div *ngFor="let type of pokemon.details.weaknesses">
               {{ type.type.name | titlecase }}
             </div>

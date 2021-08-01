@@ -34,6 +34,8 @@
     grid-area: right;
   }
   .item6 {
+    text-align: left;
+
     grid-area: footer;
   }
 
@@ -43,7 +45,7 @@
     grid-template-areas:
       "header header header header header header header"
       "menu main main main main2 main2 right"
-      "menu footer footer footer footer footer footer";
+      "menu footer footer footer footer footer right";
     grid-gap: 8px;
     color: #016ec1;
   }
