@@ -5,8 +5,9 @@
   .item1 {
     text-align: center;
     grid-area: header;
+    margin-top: 4rem;
+
     .title {
-      margin-top: 4rem;
       font-size: 48px;
     }
   }
@@ -29,14 +30,19 @@
     grid-area: main2;
   }
   .item5 {
-    text-align: left;
-
+    text-align: center;
     grid-area: right;
+    .types {
+      white-space: nowrap;
+      overflow: hidden;
+    }
   }
   .item6 {
     text-align: left;
-
     grid-area: footer;
+    .abilities {
+      white-space: nowrap;
+    }
   }
 
   .grid-container {
@@ -44,14 +50,13 @@
     display: grid;
     grid-template-areas:
       "header header header header header header header"
-      "menu main main main main2 main2 right"
-      "menu footer footer footer footer footer right";
+      "menu main main main2 main2 right right"
+      "menu footer footer footer footer right right";
     grid-gap: 8px;
     color: #016ec1;
   }
 
   .grid-container > div {
-    padding: 20px 0;
     font-size: 20px;
   }
 
