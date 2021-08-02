@@ -34,7 +34,6 @@ export class PokemonResultComponent implements OnInit {
       this.pokemons = data;
 
       if (this.pokemons.results && this.pokemons.results.length) {
-        // get pokemon details for every pokemon
         this.pokemons.results.forEach((pokemon) => {
           pokemon.id =
             pokemon.url.split('/')[pokemon.url.split('/').length - 2];
@@ -51,8 +50,6 @@ export class PokemonResultComponent implements OnInit {
       .getPokemonDetails(pokemon.name)
       .subscribe((details: PokemonDetails) => {
         pokemon.details = details;
-        // when last pokemon details have been loaded
-        // send pokemons to header component
         if (pokemon.id === '151') {
           this.pokemonsLoaded = true;
         }
