@@ -4,24 +4,18 @@ import {
   Input,
   Output,
   forwardRef,
+  OnInit,
 } from '@angular/core';
-import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { tap } from 'rxjs/operators';
 import { Results } from 'src/interfaces';
 
 @Component({
   selector: 'app-pokemon-search',
   templateUrl: './pokemon-search.component.html',
   styleUrls: ['./pokemon-search.component.scss'],
-
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PokemonSearchComponent),
-      multi: true,
-    },
-  ],
 })
-export class PokemonSearchComponent {
+export class PokemonSearchComponent implements OnInit {
   @Output() searchChange = new EventEmitter();
 
   @Input()
@@ -40,150 +34,168 @@ export class PokemonSearchComponent {
     }
   }
 
-  constructor() {}
+  public form: FormGroup;
+
+  readonly SEARCH_INPUT = 'search_input';
+  constructor(private formBuilder: FormBuilder) {}
+
+  public ngOnInit(): void {
+    this.buildForm();
+  }
+
+  private buildForm(): void {
+    this.form = this.formBuilder.group({
+      [this.SEARCH_INPUT]: this.formBuilder.control(''),
+    });
+  }
 
   public searchEvent(search: string): void {
-    // check for cleared search
-    if (search !== null) {
-      // this.search = search;
+    switch (search) {
+      case 'a':
+        this.search = 'alakazam';
+        this.searchResult = false;
+        break;
 
-      switch (search) {
-        case 'a':
-          this.search = 'alakazam';
-          this.searchResult = false;
-          break;
+      case 'b':
+        this.search = 'bulbasaur';
+        this.searchResult = false;
+        break;
 
-        case 'b':
-          this.search = 'bulbasaur';
-          this.searchResult = false;
-          break;
+      case 'c':
+        this.search = 'charizard';
+        this.searchResult = false;
+        break;
 
-        case 'c':
-          this.search = 'charizard';
-          this.searchResult = false;
-          break;
+      case 'd':
+        this.search = 'ditto';
+        this.searchResult = false;
 
-        case 'd':
-          this.search = 'ditto';
-          this.searchResult = false;
+        break;
 
-          break;
+      case 'e':
+        this.search = 'electrode';
+        this.searchResult = false;
 
-        case 'e':
-          this.search = 'electrode';
-          this.searchResult = false;
+        break;
+      case 'f':
+        this.search = 'flareon';
+        this.searchResult = false;
 
-          break;
-        case 'f':
-          this.search = 'flareon';
-          this.searchResult = false;
+        break;
+      case 'g':
+        this.search = 'golem';
+        this.searchResult = false;
 
-          break;
-        case 'g':
-          this.search = 'golem';
-          this.searchResult = false;
+        break;
+      case 'h':
+        this.search = 'haunter';
+        this.searchResult = false;
 
-          break;
-        case 'h':
-          this.search = 'haunter';
-          this.searchResult = false;
+        break;
+      case 'i':
+        this.search = 'ivysaur';
+        this.searchResult = false;
 
-          break;
-        case 'i':
-          this.search = 'ivysaur';
-          this.searchResult = false;
+        break;
+      case 'j':
+        this.search = 'jigglypuff';
+        this.searchResult = false;
 
-          break;
-        case 'j':
-          this.search = 'jigglypuff';
-          this.searchResult = false;
+        break;
+      case 'k':
+        this.search = 'koffing';
+        this.searchResult = false;
 
-          break;
-        case 'k':
-          this.search = 'koffing';
-          this.searchResult = false;
+        break;
+      case 'l':
+        this.search = 'lapras';
+        this.searchResult = false;
 
-          break;
-        case 'l':
-          this.search = 'lapras';
-          this.searchResult = false;
+        break;
+      case 'm':
+        this.search = 'magmar';
+        this.searchResult = false;
 
-          break;
-        case 'm':
-          this.search = 'magmar';
-          this.searchResult = false;
+        break;
+      case 'n':
+        this.search = 'nidorina';
+        this.searchResult = false;
 
-          break;
-        case 'n':
-          this.search = 'nidorina';
-          this.searchResult = false;
+        break;
+      case 'o':
+        this.search = 'onix';
+        this.searchResult = false;
 
-          break;
-        case 'o':
-          this.search = 'onix';
-          this.searchResult = false;
+        break;
+      case 'p':
+        this.search = 'pikachu';
+        this.searchResult = false;
 
-          break;
-        case 'p':
-          this.search = 'pikachu';
-          this.searchResult = false;
+        break;
+      case 'q':
+        this.search = '///';
+        this.searchResult = false;
 
-          break;
-        case 'q':
-          this.search = '///';
-          this.searchResult = false;
+        break;
+      case 'r':
+        this.search = 'rhydon';
+        this.searchResult = false;
 
-          break;
-        case 'r':
-          this.search = 'rhydon';
-          this.searchResult = false;
+        break;
+      case 's':
+        this.search = 'seel';
+        this.searchResult = false;
 
-          break;
-        case 's':
-          this.search = 'seel';
-          this.searchResult = false;
+        break;
+      case 't':
+        this.search = 'tauros';
+        this.searchResult = false;
 
-          break;
-        case 't':
-          this.search = 'tauros';
-          this.searchResult = false;
+        break;
+      case 'u':
+        this.search = '///';
+        this.searchResult = false;
 
-          break;
-        case 'u':
-          this.search = '///';
-          this.searchResult = false;
+        break;
+      case 'v':
+        this.search = 'venonat';
+        this.searchResult = false;
 
-          break;
-        case 'v':
-          this.search = 'venonat';
-          this.searchResult = false;
+        break;
+      case 'w':
+        this.search = 'weedle';
+        this.searchResult = false;
 
-          break;
-        case 'w':
-          this.search = 'weedle';
-          this.searchResult = false;
+        break;
+      case 'x':
+        this.search = '///';
+        this.searchResult = false;
 
-          break;
-        case 'x':
-          this.search = '///';
-          this.searchResult = false;
+        break;
+      case 'y':
+        this.search = '///';
+        this.searchResult = false;
 
-          break;
-        case 'y':
-          this.search = '///';
-          this.searchResult = false;
+        break;
+      case 'z':
+        this.search = 'zubat';
+        this.searchResult = false;
 
-          break;
-        case 'z':
-          this.search = 'zubat';
-          this.searchResult = false;
+        break;
+      default:
+        this.searchResult = false;
+        break;
+    }
 
-          break;
-        default:
-          this.searchResult = false;
-          break;
-      }
-      this.searchChange.emit(this.search);
+    this.searchChange.emit(this.search);
+  }
+
+  public onSubmit(): void {
+    if (this.form.valid) {
+      console.log('form valid', this.form.value);
+
+      this.searchEvent(this.form.controls[this.SEARCH_INPUT].value);
+      this.form.reset();
     }
   }
 

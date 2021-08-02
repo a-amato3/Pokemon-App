@@ -19,7 +19,7 @@ export class Name implements PipeTransform {
         return 'Dangerous ' + value;
 
       case 'electrode':
-        return 'Dangerous ' + value;
+        return 'Energetic ' + value;
 
       case 'flareon':
         return 'Furious ' + value;
@@ -31,7 +31,7 @@ export class Name implements PipeTransform {
         return 'Hungry ' + value;
 
       case 'ivysaur':
-        return 'Dangerous ' + value;
+        return 'Industrious ' + value;
 
       case 'jigglypuff':
         return 'Iconic ' + value;

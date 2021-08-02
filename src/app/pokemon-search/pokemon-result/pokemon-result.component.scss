@@ -1,9 +1,9 @@
 .grid-layout {
   margin: auto;
-  width: 50%;
+  width: 60%;
 
   .item1 {
-    text-align: center;
+    text-align: left;
     grid-area: header;
     margin-top: 4rem;
 
@@ -30,11 +30,11 @@
     grid-area: main2;
   }
   .item5 {
-    text-align: center;
+    // text-align: center;
     grid-area: right;
     .types {
-      white-space: nowrap;
-      overflow: hidden;
+      // white-space: nowrap;
+      // overflow: hidden;
     }
   }
   .item6 {
@@ -49,7 +49,7 @@
     height: 30%;
     display: grid;
     grid-template-areas:
-      "header header header header header header header"
+      "menu header header header header header header"
       "menu main main main2 main2 right right"
       "menu footer footer footer footer right right";
     grid-gap: 8px;

@@ -3,20 +3,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { PokemonResultMoudule } from './pokemon-result/pokemon-result.module';
+import { PokemonResultModule } from './pokemon-result/pokemon-result.module';
+import { PokemonSearchComponent } from './pokemon-search.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [PokemonSearchComponent],
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
     FormsModule,
-    PokemonResultMoudule,
+    ReactiveFormsModule,
+    PokemonResultModule,
   ],
-  providers: [],
-  schemas: [],
+  exports: [PokemonSearchComponent],
 })
 export class PokemonSearchModule {}

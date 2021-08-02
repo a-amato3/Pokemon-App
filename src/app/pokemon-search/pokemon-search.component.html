@@ -1,54 +1,55 @@
-<!-- <form> -->
-<div style="text-align: center" class="content-area">
-  <img
-    class="pokemon-logo"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
-  />
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div style="text-align: center" class="content-area">
+    <img
+      class="pokemon-logo"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
+    />
 
-  <div *ngIf="searchResult" class="subtitle">
-    <h1><strong>CODE NAME GENERATOR</strong></h1>
-  </div>
-
-  <div style="text-align: center" class="search-box">
-    <div class="center">
-      <div>
-        <input
-          *ngIf="searchResult"
-          matInput
-          class="search-input"
-          type="text"
-          [(ngModel)]="search"
-          (ngModelChange)="searchEvent($event)"
-          placeholder="Choose your letter..."
-        />
-      </div>
-
-      <button
-        *ngIf="searchResult"
-        mat-button
-        class="generator"
-        type="button"
-        ngDefaultControl
-        [(ngModel)]="search"
-        (ngSubmit)="searchEvent($event)"
-      >
-        Generate Pokemon
-      </button>
+    <div *ngIf="searchResult" class="subtitle">
+      <h1><strong>CODE NAME GENERATOR</strong></h1>
     </div>
-  </div>
 
-  <div>
-    <app-pokemon-result [search]="search"></app-pokemon-result>
-  </div>
+    <div style="text-align: center" class="search-box">
+      <div class="center">
+        <div>
+          <input
+            *ngIf="searchResult"
+            matInput
+            class="search-input"
+            type="text"
+            [formControlName]="SEARCH_INPUT"
+            placeholder="Choose your letter..."
+          />
+          <!--             [(ngModel)]="search"
+            (ngModelChange)="searchEvent($event)" -->
+        </div>
 
-  <button
-    *ngIf="!searchResult"
-    mat-button
-    style="margin-bottom: 7rem"
-    class="generator"
-    type="button"
-    (click)="clearSearch()"
-  >
-    Generate Another
-  </button>
-</div>
+        <button
+          style="color: white"
+          *ngIf="searchResult"
+          mat-button
+          class="generator"
+          type="submit"
+        >
+          Generate Pokemon
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <app-pokemon-result [search]="search"></app-pokemon-result>
+    </div>
+
+    <button
+      style="color: white"
+      *ngIf="!searchResult"
+      mat-button
+      style="margin-bottom: 7rem"
+      class="generator"
+      type="button"
+      (click)="clearSearch()"
+    >
+      Generate Another
+    </button>
+  </div>
+</form>

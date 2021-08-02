@@ -18,10 +18,9 @@ export class PokemonService {
 
   //  Returns original 151 pokemon
   public getPokemon(): Observable<PokeAPI> {
-    return this.http.get<PokeAPI>(`${this.pokeAPI}?limit=151`).pipe(
-      tap((pokemon) => console.log('LOG', pokemon)),
-      catchError(this._handleError)
-    );
+    return this.http
+      .get<PokeAPI>(`${this.pokeAPI}?limit=151`)
+      .pipe(catchError(this._handleError));
   }
 
   // Uses pokemon name to retrieve individual pokemon details
