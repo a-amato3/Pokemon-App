@@ -36,13 +36,10 @@ export class PokemonResultComponent implements OnInit {
       if (this.pokemons.results && this.pokemons.results.length) {
         // get pokemon details for every pokemon
         this.pokemons.results.forEach((pokemon) => {
-          // set pokemon id
           pokemon.id =
             pokemon.url.split('/')[pokemon.url.split('/').length - 2];
 
           this.getPokemonDetails(pokemon);
-          // this.getPokemonWeight(pokemon);
-          // this.getPokemonSpeciesDetails(pokemon);
         });
       }
     });
@@ -58,29 +55,7 @@ export class PokemonResultComponent implements OnInit {
         // send pokemons to header component
         if (pokemon.id === '151') {
           this.pokemonsLoaded = true;
-          // this.exportPokemons.emit(this.pokemons.results);
         }
       });
   }
-
-  // // Gets and sets pokemons weight
-  // private getPokemonWeight(pokemon: Results): void {
-  //   this.pokemonService
-  //     .getPokemonWeight(pokemon.name)
-  //     .subscribe((details: PokemonDetails) => {
-  //       pokemon.details = details;
-  //       // when last pokemon details have been loaded
-  //       // send pokemons to header component
-  //       if (pokemon.id === '151') {
-  //         this.pokemonsLoaded = true;
-  //         // this.exportPokemons.emit(this.pokemons.results);
-  //       }
-  //     });
-  // }
-
-  // // Gets and sets a species details (currently only sets the description - would be used when card is clicked and either
-  // // a new page/dialog with further information on a pokemon is shown)
-  // private getPokemonSpeciesDetails(pokemon: Results): void {
-  //   this.pokemonService.getPokemonSpecies(pokemon.name).subscribe();
-  // }
 }

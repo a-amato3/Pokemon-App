@@ -6,7 +6,7 @@
     />
 
     <div *ngIf="searchResult" class="subtitle">
-      <h1><strong>CODE NAME GENERATOR</strong></h1>
+      <h2 style="font-size: 40px"><strong>CODE NAME GENERATOR</strong></h2>
     </div>
 
     <div style="text-align: center" class="search-box">
@@ -18,10 +18,9 @@
             class="search-input"
             type="text"
             [formControlName]="SEARCH_INPUT"
-            placeholder="Choose your letter..."
+            placeholder="CHOOSE YOUR LETTER..."
           />
-          <!--             [(ngModel)]="search"
-            (ngModelChange)="searchEvent($event)" -->
+          <mat-icon *ngIf="searchResult" [inline]="true">search</mat-icon>
         </div>
 
         <button

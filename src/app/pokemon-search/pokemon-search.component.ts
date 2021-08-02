@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  forwardRef,
-  OnInit,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { tap } from 'rxjs/operators';
 import { Results } from 'src/interfaces';
