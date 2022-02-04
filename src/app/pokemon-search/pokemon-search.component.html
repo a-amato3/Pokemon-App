@@ -1,6 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div style="text-align: center" class="bg-white dark:bg-gray-800">
     <img
+      style="width: 500px; height: 250px"
       class="pokemon-logo"
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
     />
@@ -24,7 +25,11 @@
         </div>
 
         <button
-        class="bg py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-400">Hello</button>
+          *ngIf="searchResult"
+          class="bg py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-400"
+        >
+          Generate
+        </button>
       </div>
     </div>
 
